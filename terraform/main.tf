@@ -2,13 +2,14 @@ provider "aws" {
   region = var.aws_region
 }
 
-module "s3_bucket" {
-  source      = "./modules/s3_bucket"
-  bucket_name = var.bucket_name
-  tags        = var.tags
+module "sqs_queue" {
+  source                    = "./modules/sqs_queue"
+  queue_name                = var.queue_name
+  delay_seconds             = var.delay_seconds
+  max_message_size          = var.max_message_size
+  message_retention_seconds = var.message_retention_seconds
+  message_retention_seconds_dlq = var.message_retention_seconds_dlq
+  receive_wait_time_seconds = var.receive_wait_time_seconds
+  visibility_timeout_seconds = var.visibility_timeout_seconds
+  tags                      = var.tags
 }
-
-function_name = "lambda_notifications_email_dev"
-handler       = "index.handler"
-runtime       = "nodejs22.x"
-filename      = "lambda_function.zip"

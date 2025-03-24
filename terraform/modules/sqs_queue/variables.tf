@@ -1,8 +1,3 @@
-variable "aws_region" {
-  description = "Região da AWS"
-  type        = string
-}
-
 variable "queue_name" {
   description = "Nome da fila SQS."
   type        = string
