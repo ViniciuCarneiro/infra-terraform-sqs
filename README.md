@@ -23,11 +23,11 @@ Edite o arquivo `terraform/environments/{ambiente}/terraform.tfvars` para defini
 ### Aplicar Configuração
 
 ```sh
-terraform apply -var-file="environments/{ambiente}/terraform.tfvars" -auto-approve
+terraform apply -auto-approve -var-file="environments/{ambiente}/terraform.tfvars"
 ```
 
 ### Destruir Recursos
 
 ```sh
-terraform destroy -var-file="environments/{ambiente}/terraform.tfvars" -auto-approve
+terraform destroy -auto-approve -var-file="environments/{ambiente}/terraform.tfvars"
 ```
